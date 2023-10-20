@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { Styles } from './home.styles';
+import calc from '../../constants/calc';
 
 export const Home = () => {
 
@@ -18,9 +19,9 @@ export const Home = () => {
 
     if (!isNaN(tv) && !isNaN(r) && !isNaN(qtdp)) {
 
-      const valor_total = Math.round((tv + (tv * (r / 100))) * 100) / 100;
-      const valor_parcela = Math.round((valor_total / qtdp) * 100) / 100;
-      setResult(`R$ ${valor_total}\nParcelado em ${qtdp}x de R$ ${valor_parcela}`);
+      const result = calc(tv, r, qtdp);
+
+      setResult(`R$ ${result[0]}\nParcelado em ${qtdp}x de R$ ${result[1]}`);
 
     } else {
 

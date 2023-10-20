@@ -35,9 +35,7 @@ export const Home = () => {
 
     <View style={Styles.container}>
 
-      <Text style={Styles.titleText}>Calculadora de Financiamento</Text>
-      
-      <br/>
+      <Text style={Styles.titleText}>Calculadora de Financiamento{'\n'}</Text>
 
       <Text>Valor</Text>
       <TextInput
@@ -67,9 +65,7 @@ export const Home = () => {
         <Text style={Styles.button_text}>Calcular</Text>
       </Pressable>
 
-      <br/>
-
-      <Text>{result}</Text>
+      <Text>{'\n'}{result}</Text>
 
     </View>
 

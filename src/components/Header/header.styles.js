@@ -5,12 +5,14 @@ export const Styles = StyleSheet.create({
 
     header: {
         marginBottom: 20,
+        width: '90%',
+        alignItems: 'center',
     },
 
     titleText: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
-        color: colors.purple
+        color: colors.white
     },
 
 })

@@ -14,6 +14,7 @@ const colors = {
   blueDark: '#1E6F9F',
   danger: '#E25858',
   white: '#FFFFFF',
+  cobalt: '#0F4C81',
 }
 
 export default colors

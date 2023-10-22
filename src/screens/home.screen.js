@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
+
 import { Styles } from './home.styles';
+import { Header } from '../components/Header/header.component';
 import calc from '../../constants/calc';
 
 export const Home = () => {
@@ -9,7 +11,8 @@ export const Home = () => {
   const [rate, onChangeRate] = useState('');
   const [qtd_portion, onChangeQTDPortion] = useState('');
 
-  const [result, setResult] = useState('Preencha os valores e clique em calcular');
+  const [res_total, setResTotal] = useState('');
+  const [res_portion, setResPortion] = useState('Preencha os valores e clique em calcular');
 
   const calcular = () => {
 
@@ -21,11 +24,12 @@ export const Home = () => {
 
       const result = calc(tv, r, qtdp);
 
-      setResult(`R$ ${result[0]}\nParcelado em ${qtdp}x de R$ ${result[1]}`);
+      setResTotal(`Total: R$ ${result[0]}`);
+      setResPortion(`${qtdp}x de R$ ${result[1]}`);
 
     } else {
 
-      setResult('Por favor, insira números válidos');
+      setResPortion('Por favor, insira números válidos');
 
     }
 
@@ -35,9 +39,9 @@ export const Home = () => {
 
     <View style={Styles.container}>
 
-      <Text style={Styles.titleText}>Calculadora de Financiamento{'\n'}</Text>
+      <Header />
 
-      <Text>Valor</Text>
+      <Text style={Styles.label}>Valor:</Text>
       <TextInput
         style={Styles.input}
         onChangeText={onChangeValue}
@@ -45,7 +49,8 @@ export const Home = () => {
         inputMode='numeric'
       />
 
-      <Text>Taxa</Text>
+      <Text style={Styles.label}>Taxa:</Text>
+
       <TextInput
         style={Styles.input}
         onChangeText={onChangeRate}
@@ -53,7 +58,7 @@ export const Home = () => {
         inputMode='numeric'
       />
 
-      <Text>Quantidade de Parcelas</Text>
+      <Text style={Styles.label}>Quantidade de Parcelas:</Text>
       <TextInput
         style={Styles.input}
         onChangeText={onChangeQTDPortion}
@@ -65,7 +70,8 @@ export const Home = () => {
         <Text style={Styles.button_text}>Calcular</Text>
       </Pressable>
 
-      <Text>{'\n'}{result}</Text>
+      <Text style={Styles.res_total}>{res_total}</Text>
+      <Text style={Styles.res_portion}>{res_portion}</Text>
 
     </View>
 
